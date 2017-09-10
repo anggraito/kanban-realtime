@@ -11,9 +11,9 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="task">Title Task:</label>
-                <input type="task" class="form-control" 
-                id="task" placeholder="-Title Task-" v-model="formTask.task" />
+                <label for="title">Title Task:</label>
+                <input type="title" class="form-control" 
+                id="title" placeholder="-Title Task-" v-model="formTask.title" />
               </div>
               <div class="form-group">
                 <label for="point">Point:</label>
@@ -43,18 +43,18 @@ export default {
   data () {
     return {
       formTask: {
-        task: null,
+        title: null,
         point: 0,
         assign: null,
         describe: null,
-        status: 'backlog'
+        status: 0
       }
     }
   },
   methods: {
     addTask () {
       this.$emit('addTask', this.formTask)
-      this.formTask.task = ''
+      this.formTask.title = ''
       this.formTask.point = 0
       this.formTask.assign = ''
       this.formTask.describe = ''

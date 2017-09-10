@@ -1,7 +1,7 @@
 <template>
   <div class="detailed">
     <div class="header-item">
-      <h4>{{detailed.task}}</h4>
+      <h4>{{detailed.title}}</h4>
       <span @click="deleteTask(currentTask)" type="button"
       class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     </div>

@@ -8,19 +8,16 @@
         data-toggle="modal" data-target="#detailModal"
         @click="detailTask(doing)">Show
       </button>
-      <modaldetail />
     </div>
   </div>
 </template>
 
 <script>
 import detailed from '@/components/detailed'
-import modaldetail from '@/components/modaldetail'
 export default {
   props: ['doingTask'],
   components: {
-    detailed,
-    modaldetail
+    detailed
   },
   methods: {
     detailTask (data) {
