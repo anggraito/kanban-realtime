@@ -1,19 +1,32 @@
 <template>
   <div class="detailed">
     <div class="header-item">
-      <h4>Title</h4>
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <h4>{{detailed.task}}</h4>
+      <span @click="deleteTask(currentTask)" type="button"
+      class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     </div>
-    <p>Point: 10</p>
+    <p>Point: {{detailed.point}}</p>
+    <p>Assigned To: {{detailed.assign}}</p>
     <p>Desciption:
-      This paragraph tell about desciptif of description
+      {{detailed.describe}}
     </p>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'detailed'
+  name: 'detailed',
+  props: ['detailed'],
+  components: {
+  },
+  methods: {
+    deleteTask: function (data) {
+      if (window.confirm('Delete this task?')) {
+        this.$emit('deleteTask', data)
+      }
+    }
+  }
 }
 </script>
 

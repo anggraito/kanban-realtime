@@ -1,19 +1,31 @@
 <template>
   <div class="box-wrap">
     <h3 class="head-title">Backlog</h3>
-    <div class="item">
+    <div class="item" v-for="doing in doingTask"
+    :key="doing.id" :detailed="detailed" >
       <detailed />
-      <button>ToDo</button>
-      <button>Done</button>
+      <button type="button" class="btn btn-sm" 
+        data-toggle="modal" data-target="#detailModal"
+        @click="detailTask(doing)">Show
+      </button>
+      <modaldetail />
     </div>
   </div>
 </template>
 
 <script>
 import detailed from '@/components/detailed'
+import modaldetail from '@/components/modaldetail'
 export default {
+  props: ['doingTask'],
   components: {
-    detailed
+    detailed,
+    modaldetail
+  },
+  methods: {
+    detailTask (data) {
+      this.$emit('detailTask', data)
+    }
   }
 }
 </script>

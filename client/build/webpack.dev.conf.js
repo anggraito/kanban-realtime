@@ -1,5 +1,6 @@
 var utils = require('./utils')
 var webpack = require('webpack')
+var Dotenv = require('dotenv-webpack');
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
@@ -30,6 +31,11 @@ module.exports = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default) 
+      safe: true // load .env.example (defaults to "false" which does not use dotenv-safe) 
+    })
   ]
 })
+

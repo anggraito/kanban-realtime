@@ -1,21 +1,24 @@
 <template>
   <div class="container dashboard">
     <div class="row">
-      <button>ADD NEW TASK</button>
+      <button type="button" class="btn btn-lg" 
+      data-toggle="modal" data-target="#myModal">ADD NEW TASK</button>
+      <modaladd @addTask="addTask"/>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <backlog /> 
+        <backlog :backlogTask="backlogTask" /> 
       </div>
       <div class="col-md-3">
-        <todo />
+        <todo :todoTask="todoTask" />
       </div>
       <div class="col-md-3">
-        <doing />
+        <doing :doingTask="doingTask" />
       </div>
       <div class="col-md-3">
-        <done />
+        <done :doneTask="doneTask" />
       </div>
+      modal detail?
     </div>
   </div>
 </template>
@@ -25,13 +28,21 @@ import backlog from '@/components/backlog'
 import todo from '@/components/todo'
 import doing from '@/components/doing'
 import done from '@/components/done'
+import modaladd from '@/components/modaladd'
 export default {
   name: 'dashboard',
+  props: ['backlogTask', 'todoTask', 'doingTask', 'doneTask'],
   components: {
     backlog,
     todo,
     doing,
-    done
+    done,
+    modaladd
+  },
+  methods: {
+    addTask (data) {
+      this.$emit('addTask', data)
+    }
   }
 }
 </script>
