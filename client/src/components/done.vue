@@ -1,12 +1,11 @@
 <template>
   <div class="box-wrap">
     <h3 class="head-title">Backlog</h3>
-    <div class="item" v-for="done in doneTask"
-    :key="done.id" :detailed="detailed">
+    <div class="item" >
       <detailed />
       <button type="button" class="btn btn-sm" 
         data-toggle="modal" data-target="#detailModal"
-        @click="detailTask(done)">Show
+        >Show
       </button>
       <modaldetail />
     </div>
@@ -17,15 +16,9 @@
 import detailed from '@/components/detailed'
 import modaldetail from '@/components/modaldetail'
 export default {
-  props: ['doneTask'],
   components: {
     detailed,
     modaldetail
-  },
-  methods: {
-    detailTask (data) {
-      this.$emit('detailTask', data)
-    }
   }
 }
 </script>

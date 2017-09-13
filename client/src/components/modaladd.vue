@@ -13,24 +13,24 @@
               <div class="form-group">
                 <label for="title">Title Task:</label>
                 <input type="title" class="form-control" 
-                id="title" placeholder="-Title Task-" v-model="formTask.title" />
+                id="title" placeholder="-Title Task-" />
               </div>
               <div class="form-group">
                 <label for="point">Point:</label>
                 <input type="point" class="form-control" 
-                id="point" placeholder="-How many point-" v-model="formTask.point" />
+                id="point" placeholder="-How many point-"  />
               </div>
               <div class="form-group">
                 <label for="assign">Assign to:</label>
                 <input type="assign" class="form-control" 
-                id="assign" placeholder="-Who's people assigned-" v-model="formTask.assign" />
+                id="assign" placeholder="-Who's people assigned-"  />
               </div>
               <div class="form-group">
                 <label for="describe">Describe:</label>
                 <textarea type="describe" class="form-control" 
-                id="describe" placeholder="-Describe it-" v-model="formTask.describe" />
+                id="describe" placeholder="-Describe it-" />
               </div>
-              <button @click="addTask()" type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default">Submit</button>
             </form>
           </div>
         </div>
@@ -49,15 +49,6 @@ export default {
         describe: null,
         status: 0
       }
-    }
-  },
-  methods: {
-    addTask () {
-      this.$emit('addTask', this.formTask)
-      this.formTask.title = ''
-      this.formTask.point = 0
-      this.formTask.assign = ''
-      this.formTask.describe = ''
     }
   }
 }

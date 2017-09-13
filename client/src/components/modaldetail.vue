@@ -27,20 +27,6 @@ import detailed from '@/components/detailed'
 export default {
   components: {
     detailed
-  },
-  methods: {
-    setBackLog: function (data) {
-      this.$emit('setBackLog', data)
-    },
-    setTodo: function (data) {
-      this.$emit('setTodo', data)
-    },
-    setDoing: function (data) {
-      this.$emit('setDoing', data)
-    },
-    setDone: function (data) {
-      this.$emit('setDone', data)
-    }
   }
 }
 </script>

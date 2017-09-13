@@ -1,14 +1,14 @@
 <template>
   <div class="detailed">
     <div class="header-item">
-      <h4>{{detailed.title}}</h4>
-      <span @click="deleteTask(currentTask)" type="button"
+      <h4>ya</h4>
+      <span type="button"
       class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     </div>
-    <p>Point: {{detailed.point}}</p>
-    <p>Assigned To: {{detailed.assign}}</p>
+    <p>Poin</p>
+    <p>Assigned To</p>
     <p>Desciption:
-      {{detailed.describe}}
+      
     </p>
   </div>
 </template>

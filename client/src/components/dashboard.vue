@@ -3,22 +3,22 @@
     <div class="row">
       <button type="button" class="btn btn-lg" 
       data-toggle="modal" data-target="#myModal">ADD NEW TASK</button>
-      <modaladd @addTask="addTask"/>
+      <modaladd />
     </div>
     <div class="row content">
       <div class="col-md-3">
-        <backlog :backlogTask="backlogTask" @detailTask="detailTask"/> 
+        <backlog /> 
       </div>
       <div class="col-md-3">
-        <todo :todoTask="todoTask" @detailTask="detailTask" />
+        <todo />
       </div>
       <div class="col-md-3">
-        <doing :doingTask="doingTask" @detailTask="detailTask" />
+        <doing />
       </div>
       <div class="col-md-3">
-        <done :doneTask="doneTask" @detailTask="detailTask" />
+        <done />
       </div>
-      <modaldetail @deleteTask="deleteTask" @setDoing="setDoing" @setTodo="setTodo" @setDone="setDone" @setBacklog="setBacklog" :recentTask="recentTask"/>
+      <modaldetail />
     </div>
   </div>
 </template>
@@ -32,7 +32,6 @@ import modaladd from '@/components/modaladd'
 import modaldetail from '@/components/modaldetail'
 export default {
   name: 'dashboard',
-  props: ['addTask', 'backlogTask', 'todoTask', 'doingTask', 'doneTask', 'detailTask'],
   components: {
     backlog,
     todo,
@@ -40,29 +39,6 @@ export default {
     done,
     modaladd,
     modaldetail
-  },
-  methods: {
-    addTask (data) {
-      this.$emit('addTask', data)
-    },
-    detailTask (data) {
-      this.$emit('detailTask', data)
-    },
-    setBacklog (data) {
-      this.$emit('setBacklog', data)
-    },
-    setTodo (data) {
-      this.$emit('setTodo', data)
-    },
-    setDoing (data) {
-      this.$emit('setDoing', data)
-    },
-    setDone (data) {
-      this.$emit('setDone', data)
-    },
-    deleteTask (data) {
-      this.$emit('deleteTask', data)
-    }
   }
 }
 </script>

@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <img class="image-logo" src="./assets/logo.png">
-    <router-view @recentTask="recentTask" @addTask="addTask" 
-    @detailTask="detailTask" @setBacklog="setBacklog" @setTodo="setTodo" 
-    @setDoing="setDoing" @setDone="setDone" @deleteTask="deleteTask" 
-    @backlogTask="backlogTask" @todoTask="todoTask" @doingTask="doingTask"
-    @doneTask="doneTask"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -35,60 +31,6 @@ export default {
   },
   firebase: {
     alltask: db.ref('alltask')
-  },
-  method: {
-    addTask (data) {
-      this.$firebaseRefs.alltask.push(data)
-    },
-    detailTask (data) {
-      this.recentTask = data
-    },
-    setBacklog (data) {
-      this.$firebaseRefs.alltask.child(data['.key'])
-      .child('status')
-      .set(0)
-    },
-    setTodo (data) {
-      this.$firebaseRefs.alltask.child(data['.key'])
-      .child('status')
-      .set(1)
-    },
-    setDoing (data) {
-      this.$firebaseRefs.alltask.child(data['.key'])
-      .child('status')
-      .set(2)
-    },
-    setDone (data) {
-      this.$firebaseRefs.alltask.child(data['.key'])
-      .child('status')
-      .set(3)
-    },
-    deleteTask (data) {
-      this.$firebaseRefs.alltask.child(data['.key'])
-      .remove()
-    }
-  },
-  computed: {
-    backlogTask () {
-      return this.alltask.filter(function (t) {
-        return t.status === 0
-      })
-    },
-    todoTask () {
-      return this.alltask.filter(function (t) {
-        return t.status === 1
-      })
-    },
-    doingTask () {
-      return this.alltask.filter(function (t) {
-        return t.status === 2
-      })
-    },
-    doneTask () {
-      return this.alltask.filter(function (t) {
-        return t.status === 3
-      })
-    }
   }
 }
 </script>
