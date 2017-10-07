@@ -7,7 +7,10 @@
     </div>
     <div class="row content">
       <div class="col-md-3">
-        <backlog /> 
+       <h3 class="head-title">Backlog</h3>
+        <div class="item">
+          <backlog :tasks="tasks"/>
+        </div>
       </div>
       <div class="col-md-3">
         <todo />
@@ -39,6 +42,22 @@ export default {
     done,
     modaladd,
     modaldetail
+  },
+  data () {
+    return {
+      tasks: null,
+      keys: null
+    }
+  },
+  methods: {
+    getTasks () {
+      this.$tasksRef.on('value', (data) => {
+        this.tasks = data.val()
+      })
+    }
+  },
+  mounted () {
+    this.getTasks()
   }
 }
 </script>
@@ -48,7 +67,7 @@ export default {
 .content{
   padding-top: 30px;
 }
-.box-wrap{
+.item{
   border: 2px solid #f6f6f6;
   padding:0 0 30px 0;
   margin-bottom: 20px;
@@ -60,5 +79,13 @@ export default {
 .btn{
   background-color: #565656;
   color: #f9f9f9;
+}
+.head-title{
+  background: #febb32;
+  padding: 15px;
+  margin: 0;
+}
+.item:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

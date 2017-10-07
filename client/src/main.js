@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueFire from 'vuefire'
 import App from './App'
 import router from './router'
+// import store from './vuex/store'
 import * as firebase from 'firebase'
 
 Vue.use(VueFire)
