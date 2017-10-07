@@ -1,7 +1,7 @@
 <template>
   <div class="container dashboard">
     <div class="row">
-      <button type="button" class="btn btn-lg" 
+      <button type="button" class="btn btn-sm" 
       data-toggle="modal" data-target="#myModal">ADD NEW TASK</button>
       <modaladd />
     </div>
@@ -56,5 +56,9 @@ export default {
 .box-wrap h3{
   color: #fff;
   font-weight: bold;
+}
+.btn{
+  background-color: #565656;
+  color: #f9f9f9;
 }
 </style>

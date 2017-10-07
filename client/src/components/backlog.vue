@@ -27,14 +27,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .head-title{
-  background: red;
+  background: #febb32;
   padding: 15px;
   margin: 0;
 }
 .item{
   text-align: left;
   padding: 10px;
-  border: 2px solid #000;
+  border: 2px dashed #565656;
   margin: 5px;
+}
+.item:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

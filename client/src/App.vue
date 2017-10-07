@@ -1,21 +1,11 @@
 <template>
   <div id="app">
-    <img class="image-logo" src="./assets/logo.png">
+    <h2>KANBAN <small>Suling</small></h2>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import * as firebase from 'firebase'
-var config = {
-  apiKey: 'AIzaSyBfFVVOEdOF8DCU6XZFexWVqEXH6FEWbFM',
-  authDomain: 'kanban-33097.firebaseapp.com',
-  databaseURL: 'https://kanban-33097.firebaseio.com',
-  projectId: 'kanban-33097'
-}
-const firebaseApp = firebase.initializeApp(config)
-const db = firebaseApp.database()
-
 export default {
   name: 'app',
   data () {
@@ -28,22 +18,24 @@ export default {
         status: null
       }
     }
-  },
-  firebase: {
-    alltask: db.ref('alltask')
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #565656;
 }
-.image-logo{
-  width: 80px;
+h2{
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 44px;
+}
+h2 small {
+  font-family: 'Fascinate Inline', cursive;
+  color: #565656;
 }
 </style>
+<!-- font-family: 'Lato', sans-serif; -->

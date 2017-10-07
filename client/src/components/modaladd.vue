@@ -13,24 +13,25 @@
               <div class="form-group">
                 <label for="title">Title Task:</label>
                 <input type="title" class="form-control" 
-                id="title" placeholder="-Title Task-" />
+                id="title" placeholder="-Title Task-" v-model="formTask.title" />
               </div>
               <div class="form-group">
                 <label for="point">Point:</label>
                 <input type="point" class="form-control" 
-                id="point" placeholder="-How many point-"  />
+                id="point" placeholder="-How many point-" v-model="formTask.point"/>
               </div>
               <div class="form-group">
                 <label for="assign">Assign to:</label>
                 <input type="assign" class="form-control" 
-                id="assign" placeholder="-Who's people assigned-"  />
+                id="assign" placeholder="-Who's people assigned-" v-model="formTask.assign"/>
               </div>
               <div class="form-group">
                 <label for="describe">Describe:</label>
                 <textarea type="describe" class="form-control" 
-                id="describe" placeholder="-Describe it-" />
+                id="describe" placeholder="-Describe it-" v-model="formTask.describe"/>
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default"
+              @click="submit">Submit</button>
             </form>
           </div>
         </div>
@@ -47,7 +48,18 @@ export default {
         point: 0,
         assign: null,
         describe: null,
-        status: 0
+        status: 1
+      },
+      msg: null
+    }
+  },
+  methods: {
+    submit () {
+      if (this.formTask.title === null || this.formTask.title === '' || this.formTask.describe === null || this.formTask.describe === '') {
+        this.msg = 'heading and content can\'t null'
+      } else {
+        this.$tasksRef.push(this.formTask)
+        this.$router.push('/dashboard')
       }
     }
   }
