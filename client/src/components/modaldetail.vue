@@ -18,10 +18,8 @@
             </p>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-danger">Back Log</button>
-            <button class="btn btn-info">To Do</button>
-            <button class="btn btn-warning">Doing</button>
-            <button class="btn btn-success">Done</button>
+            <button class="btn btn-danger">Prev</button>
+            <button class="btn btn-info">Next</button>
           </div>
         </div>
       </div>
@@ -38,6 +36,16 @@ export default {
   methods: {
     getTasks () {
       this.$emit('getTasks', this.task)
+    },
+    next (task, index) {
+      this.$tasksRef.child(index).update({
+        status: task.status + 1
+      })
+    },
+    prev (task, index) {
+      this.$tasksRef.child(index).update({
+        status: task.status - 1
+      })
     }
   }
 }
