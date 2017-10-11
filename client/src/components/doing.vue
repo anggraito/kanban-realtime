@@ -1,21 +1,36 @@
 <template>
   <div class="box-wrap">
-    <h3 class="head-title">Backlog</h3>
-    <div class="item"  >
-      <detailed />
+    <div class="box" v-for="(task, index) in tasks" 
+    :key="index" v-if="task.status === 3">
+      <div class="header-item">
+        <h4>{{task.title}}</h4>
+        <span type="button" class="glyphicon glyphicon-remove" 
+        aria-hidden="true" @click="remove(index)"></span>
+      </div>
+      <p><strong>Point: </strong>{{task.point}}</p>
+      <p><strong>Assigned To: </strong>{{task.assign}}</p>
+      <br />
       <button type="button" class="btn btn-sm" 
-        data-toggle="modal" data-target="#detailModal"
-        >Show
+      data-toggle="modal" data-target="#detailModal"
+      >Show
       </button>
+      <modaldetail :task="task"/>
     </div>
   </div>
 </template>
 
 <script>
-import detailed from '@/components/detailed'
+import modaldetail from '@/components/modaldetail'
 export default {
+  name: 'box-wrap',
   components: {
-    detailed
+    modaldetail
+  },
+  props: ['tasks'],
+  methods: {
+    remove (index) {
+      this.$tasksRef.child(index).remove()
+    }
   }
 }
 </script>

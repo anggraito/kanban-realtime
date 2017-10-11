@@ -65,7 +65,7 @@ export default {
   },
   watch: {
     id (newId) {
-      this.getTasks(newId )
+      this.getTasks(newId)
     }
   }
 }

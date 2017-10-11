@@ -19,10 +19,16 @@
         </div>
       </div>
       <div class="col-md-3">
-        <doing />
+        <h3 class="head-title doing">DOING</h3>
+        <div class="item">
+           <doing :tasks="tasks"/>
+        </div>
       </div>
       <div class="col-md-3">
-        <done />
+        <h3 class="head-title done">DONE</h3>
+        <div class="item">
+           <done :tasks="tasks"/>
+        </div>
       </div>
       <modaldetail />
     </div>
@@ -87,8 +93,16 @@ export default {
   background: #febb32;
   padding: 15px;
   margin: 0;
+  color: #fff;
+  font-weight: 800;
 }
 .todo{
   background: #d0dd2b;
+}
+.doing{
+  background: #98c73d;
+}
+.done{
+  background: #00a9e0;
 }
 </style>
