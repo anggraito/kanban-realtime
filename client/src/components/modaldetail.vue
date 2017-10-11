@@ -18,8 +18,14 @@
             </p>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-danger">Prev</button>
-            <button class="btn btn-info">Next</button>
+            <div v-if="task.status === 1"></div>
+            <div v-else>
+              <button @click="prev(task, index)"class="btn btn-danger">Prev</button>
+            </div>
+            <div v-if="task.status === 4"></div>
+            <div v-else>
+              <button @click="next(task, index)" class="btn btn-info">Next</button>
+            </div>
           </div>
         </div>
       </div>
@@ -32,9 +38,15 @@ export default {
   components: {
     detailed
   },
-  props: ['task'],
+  props: ['index'],
+  data () {
+    return {
+      task: {}
+    }
+  },
+  // props: ['task'],
   methods: {
-    getTasks () {
+    getTasks (index) {
       this.$emit('getTasks', this.task)
     },
     next (task, index) {
@@ -46,6 +58,14 @@ export default {
       this.$tasksRef.child(index).update({
         status: task.status - 1
       })
+    }
+  },
+  mounted () {
+    this.getTasks(this.index)
+  },
+  watch: {
+    id (newId) {
+      this.getTasks(newId )
     }
   }
 }

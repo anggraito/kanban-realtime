@@ -14,7 +14,7 @@
       data-toggle="modal" data-target="#detailModal"
       >Show
       </button>
-      <modaldetail :task="task" />
+      <modaldetail :task="task" :to="'/dashboard/'+ index"/>
     </div>
     
   </div>

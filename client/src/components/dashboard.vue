@@ -13,7 +13,10 @@
         </div>
       </div>
       <div class="col-md-3">
-        <todo />
+        <h3 class="head-title todo">To-Do</h3>
+        <div class="item" >
+          <todo :tasks="tasks"/>
+        </div>
       </div>
       <div class="col-md-3">
         <doing />
@@ -84,5 +87,8 @@ export default {
   background: #febb32;
   padding: 15px;
   margin: 0;
+}
+.todo{
+  background: #d0dd2b;
 }
 </style>
