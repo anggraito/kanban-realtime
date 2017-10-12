@@ -21,7 +21,7 @@
             <div v-if="task.status === 1"></div>
             <div v-else>
               <button @click="prev(task, index)"class="btn btn-danger">Prev</button>
-            </div>
+            </div> 
             <div v-if="task.status === 4"></div>
             <div v-else>
               <button @click="next(task, index)" class="btn btn-info">Next</button>
